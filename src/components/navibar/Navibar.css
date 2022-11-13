@@ -1,0 +1,29 @@
+.navigation{
+    color: azure;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+}
+
+.nav-1{
+    display: flex;
+    justify-content: space-around;
+    width: 180px;
+}
+
+.nav-1 h6{
+    font-weight: bold;
+    font-size: 25px;
+    
+}
+
+.nav-1 span{
+    color: aqua;
+}
+
+.login{
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+}

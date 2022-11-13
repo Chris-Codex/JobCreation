@@ -1,12 +1,15 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Navibar from './components/navibar/Navibar';
+import Home from './pages/home/Home';
   
 function App() {
   return (
-    <>
+    <section>
       <ToastContainer />
-      <h3>Hello World</h3>
-    </>
+      <Navibar />
+      <Home />
+    </section>
   );
 }
 
