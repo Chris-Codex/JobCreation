@@ -19,3 +19,59 @@
     margin-bottom: 20px;
 }
 
+.content-col{
+    height: 695px;
+}
+
+.cards{
+    margin-top: 50px;
+}
+
+.card-control{
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.card-control h5{
+    margin-top: -50px;
+    margin-left: 30px;
+}
+
+.card-1{
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    height: 120px;
+    border-radius: 10px;
+    border-bottom: 5px solid rgb(254, 235, 208);
+}
+
+.card-1 h6{
+    margin-left: 12px;
+    margin-top: 15px;
+}
+
+.faP{
+    background-color: rgb(254, 235, 208);
+    height: 40px;
+    width: 60px;
+    margin-right: 30px;
+    margin-top: 15px;
+}
+
+.faP1{
+    height: 40px;
+    width: 60px;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.FawpformsIcon{
+    margin-left: 20px;
+}
+
+.FawpformsIcon{
+    margin-right: 12px;
+    margin-top: 12px;
+}
+
