@@ -1,0 +1,15 @@
+.job-card{
+   margin-top: 50px;
+}
+
+.forms-input{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-btns{
+    display: flex;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
+}

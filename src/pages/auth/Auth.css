@@ -1,0 +1,13 @@
+.wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-btns{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}

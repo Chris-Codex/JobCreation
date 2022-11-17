@@ -1,0 +1,16 @@
+.wrappers{
+    width: 800px;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+    margin-top: 140px;
+}
+
+.links{
+    color: #fff;
+    text-decoration: none;
+}
+
+.link :hover{
+    color: #fff;
+}

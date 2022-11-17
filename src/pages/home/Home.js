@@ -1,69 +1,46 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import "../home/Home.css"
 import { Col, Container, Row } from 'react-bootstrap'
-import { FaDeezer, FaAccessibleIcon, FaAddressCard, FaAddressBook, FaWpforms, FaBlenderPhone, FaExpandArrowsAlt } from "react-icons/fa"
+import Cards from '../../components/card/Cards'
+import List from './../../components/list/List';
+import Navibar from './../../components/navibar/Navibar';
+import { auth } from '../../firebase';
+import { useSelector, useDispatch } from 'react-redux';
+import { loginUser } from '../../features/user/userSlice';
+
 
 const Home = () => {
+    const {user} = useSelector((store) => store.user)
+    const dispatch = useDispatch()
+    const [displayName, setDisplayName] = useState('')
+    const [uid, setUid] = useState("")
+
+    useEffect(() => {
+        auth.onAuthStateChanged((getUser) => {
+            const user = getUser
+            const userID = getUser?.uid
+            setUid(userID)
+            setDisplayName(user.displayName)
+            dispatch(loginUser(user))
+        })
+    }, [])
+
   return (
-    <Container>
-        <Row>
-            <Col md={2}>
-                <div className='sideNavs'>
-                    <ul className='list'>
-                        <li><FaDeezer size={22} />&nbsp;Stats</li>
-                        <li><FaAccessibleIcon size={22} />&nbsp;All Jobs</li>
-                        <li><FaAddressCard size={22} />&nbsp;Add Job</li>
-                        <li><FaAddressBook size={22} />&nbsp;Profile</li>
-                    </ul>
-                </div>
-            </Col>
-            <Col md={10} className="content-col">
-                <div className='cards'>
-                    <Row>
-                        <Col md={4}>
-                            <div className='card-control'>
-                                <div className='card-1'>
-                                    <div className='faP1'>
-                                        <h6 style={{color: "rgb(254, 235, 208)", fontSize: 26}}>21</h6>
-                                    </div>
-                                    <div className='faP'>
-                                        <FaWpforms className='FawpformsIcon' />
-                                    </div>
-                                </div>
-                                <h5>Pending Application</h5>
-                            </div>
-                        </Col>
-                        <Col md={4}>
-                            <div className='card-control'>
-                                    <div className='card-1'>
-                                        <div className='faP1'>
-                                            <h6 style={{color: "rgb(254, 235, 208)", fontSize: 26}}>50</h6>
-                                        </div>
-                                        <div className='faP'>
-                                            <FaBlenderPhone className='FawpformsIcon' />
-                                        </div>
-                                    </div>
-                                    <h5>Interviews Scheduled</h5>
-                            </div>
-                        </Col>
-                        <Col md={4}>
-                        <div className='card-control'>
-                            <div className='card-1'>
-                                <div className='faP1'>
-                                    <h6 style={{color: "rgb(254, 235, 208)", fontSize: 26}}>8</h6>
-                                </div>
-                                <div className='faP'>
-                                    <FaExpandArrowsAlt className='FawpformsIcon' />
-                                </div>
-                                </div>
-                                <h5>Jobs Declined</h5>
-                            </div>
-                        </Col>
-                    </Row>
-                </div>
-            </Col>
-        </Row>
-    </Container>
+    <>
+        <Navibar displayName={displayName} uid={uid} />
+        <Container>
+            <Row>
+                <Col md={2}>
+                    <div className='sideNavs'>
+                        <List />
+                    </div>
+                </Col>
+                <Col md={10} className="content-col">
+                    <Cards />
+                </Col>
+            </Row>
+        </Container>
+    </>
   )
 }
 
