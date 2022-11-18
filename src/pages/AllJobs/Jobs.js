@@ -12,9 +12,6 @@ import { toast } from 'react-toastify';
 import { statux } from '../../utility/dropdownData';
 
 
-
-
-
 const Jobs = () => {
     const navigate = useNavigate()
     const {user} = useContext(contextUser)
@@ -28,12 +25,11 @@ const Jobs = () => {
     //Search form
     const keys = ["position", "company", "type", "status"]
 
-  
-  
     const handleSearch = (data) => {
         return data.filter((item) => keys.some((key) => item[key].toLowerCase().includes(query,qry)))
     }
 
+    //fetch all details from firestore
     useEffect(() => {
         const snapshot = onSnapshot(collection(db, "AddJobs"),
             (snapshot) => {

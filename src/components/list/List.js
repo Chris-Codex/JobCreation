@@ -18,9 +18,11 @@ const List = () => {
                 <li><FaDeezer size={22} />&nbsp;Stats</li>
               </Link>
             </ProtectRoute>
-            <Link to="/all-jobs" style={{textDecoration: "none", color: "#000"}}>
-              <li><FaAccessibleIcon size={22} />&nbsp;All Jobs</li>
-            </Link>
+            <ProtectRoute>
+              <Link to="/all-jobs" style={{textDecoration: "none", color: "#000"}}>
+                <li><FaAccessibleIcon size={22} />&nbsp;All Jobs</li>
+              </Link>
+            </ProtectRoute>
             <ProtectRoute>
               <Link to="/add-jobs" style={{textDecoration: "none", color: "#000"}}>
                 <li><FaAddressCard size={22} />&nbsp;Add Job</li>

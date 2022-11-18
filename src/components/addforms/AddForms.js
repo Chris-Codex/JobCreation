@@ -84,7 +84,6 @@ const AddForms = () => {
     }, [])
   return (
     <section>
-        <Navibar displayName={username} uid={userID} />
         <div className='job-card'>
             <Alert variant="light">
                 <h3>Add Jobs</h3>

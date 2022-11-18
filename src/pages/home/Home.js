@@ -7,13 +7,15 @@ import Navibar from './../../components/navibar/Navibar';
 import { auth } from '../../firebase';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginUser } from '../../features/user/userSlice';
+import Loading from './../../components/loading/Loading';
+
 
 
 const Home = () => {
-    const {user} = useSelector((store) => store.user)
     const dispatch = useDispatch()
     const [displayName, setDisplayName] = useState('')
     const [uid, setUid] = useState("")
+    const [isLoading, setisLoading] = useState(true)
 
     useEffect(() => {
         auth.onAuthStateChanged((getUser) => {
@@ -35,9 +37,12 @@ const Home = () => {
                         <List />
                     </div>
                 </Col>
-                <Col md={10} className="content-col">
-                    <Cards />
-                </Col>
+               
+                    <Col md={10} className="content-col">
+                        {isLoading && <Cards />}
+                        
+                    </Col>
+
             </Row>
         </Container>
     </>
